@@ -1,6 +1,12 @@
 console.log("hola")
 
+const randomNumber = function aleatory () {
+    return Math.floor(Math.random() * 3);
+ }
+
 let valorInicial = 16;
+let colores = ["rgb(2, 253, 241)","rgb(255, 238, 0)","rgb(0, 255, 42)"]
+    
 
 window.onload = inicio;
 
@@ -21,7 +27,6 @@ function inicio() {
 
 function modify () {
      let respuesta = window.prompt("cuantas cuadricualas deseas");
-
      if(respuesta <= 100) {
         valorInicial = respuesta;
         document.querySelector(".principal-container").innerHTML = "";
@@ -51,7 +56,7 @@ document.querySelector(".principal-container").appendChild(div);
 
 }
 
-
+console.log(randomNumber());
 
 
 function pintar () {
@@ -65,8 +70,9 @@ function pintar () {
 
         caja.addEventListener("mouseout", function() {
             if (caja.style.backgroundColor === "red") {
-                caja.style.backgroundColor="yellow"
-                console.log("sirvio");
+                
+                caja.style.backgroundColor= colores[randomNumber()];
+                console.log(colores[randomNumber]);
             } 
         })
 
@@ -79,5 +85,6 @@ function pintar () {
 
 
 
+function opacidad () {
 
-
+}
