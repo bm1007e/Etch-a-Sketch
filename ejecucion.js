@@ -20,6 +20,7 @@ function inicio() {
     }
 
     pintar();
+    opacidad();
     document.querySelector("button").onclick = modify;
 
 
@@ -66,7 +67,7 @@ function pintar () {
     cajas.forEach(caja=> {
         caja.addEventListener("mouseover", function() {
             caja.style.backgroundColor="red";
-        })
+        }, { once: true})
 
         caja.addEventListener("mouseout", function() {
             if (caja.style.backgroundColor === "red") {
@@ -86,5 +87,21 @@ function pintar () {
 
 
 function opacidad () {
+    
+    let cajas = document.querySelectorAll(".box");
+
+
+    cajas.forEach(caja=> {
+
+        
+        caja.addEventListener("mouseover", function() {
+            let prueba = parseFloat(window.getComputedStyle(caja).opacity) - 0.1;
+            let newopacity = Math.max(0,prueba);
+            caja.style.opacity = newopacity;
+            
+        })
+    }) 
+    
+
 
 }
